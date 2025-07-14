@@ -21,15 +21,19 @@ const dummyProducts = [
 
 export default function Home() {
   return (
-    <>
+    <div className="bg-white min-h-screen">
       <Header />
       <Hero />
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-6">
-        {dummyProducts.map((product) => (
-          <ProductCard key={product.id} product={product} />
-        ))}
-      </div>
+
+      <section className="px-4 sm:px-12 py-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          {dummyProducts.map((product) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
+        </div>
+      </section>
+
       <Footer />
-    </>
+    </div>
   );
 }
