@@ -9,7 +9,7 @@ interface Product {
 
 export default function ProductCard({ product }: { product: Product }) {
   return (
-    <Link href={`/product/${product.id}`}>
+    <Link href={`/products/${product.id}`}>
       <div className="bg-white rounded-lg shadow-md p-4 transition-transform hover:scale-105 hover:shadow-lg cursor-pointer">
         <div className="w-full h-48 overflow-hidden rounded">
           <img

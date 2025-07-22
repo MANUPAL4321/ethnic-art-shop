@@ -1,8 +1,7 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import ProductCard from "@/components/ProductCard";
 import Footer from "@/components/Footer";
-import { products } from "@/data/products";  // ✅ import shared data
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -10,13 +9,14 @@ export default function Home() {
       <Header />
       <Hero />
 
-      <section className="px-4 sm:px-12 py-12">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {products.map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))}
-        </div>
-      </section>
+      {/* Call to Action */}
+      <div className="text-center py-12">
+        <Link href="/products">
+          <button className="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-6 rounded shadow transition">
+            Shop Now
+          </button>
+        </Link>
+      </div>
 
       <Footer />
     </div>
