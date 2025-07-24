@@ -37,7 +37,7 @@ export default function CartPage() {
                 <div className="flex-grow">
                   <h2 className="text-lg font-semibold text-purple-700">{item.title}</h2>
 
-                  {/* ✅ Quantity price calculation */}
+                  {/*Quantity price calculation */}
                   <p className="text-green-600 font-medium">
                     ₹{item.price} × {item.quantity} = ₹{item.price * item.quantity}
                   </p>
@@ -69,7 +69,7 @@ export default function CartPage() {
             ))}
           </ul>
 
-          {/* ✅ Show total price at bottom */}
+          {/* Show total price at bottom */}
           <div className="mt-10 text-right">
             <h2 className="text-xl font-bold text-purple-800">
               Total: ₹{getTotalPrice()}

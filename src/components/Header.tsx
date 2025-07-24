@@ -1,11 +1,12 @@
 "use client";
 
 import Link from "next/link";
-// import Image from "next/image";
 import { useCart } from "@/context/CartContext";
+import { signIn, signOut, useSession } from "next-auth/react";
 
 export default function Header() {
   const { cartItems } = useCart();
+  const { data: session } = useSession();
 
   return (
     <header className="bg-white shadow px-6 py-4 flex justify-between items-center">
@@ -46,6 +47,23 @@ export default function Header() {
             </span>
           )}
         </Link>
+
+        {/* Authentication buttons */}
+        {session ? (
+          <button
+            onClick={() => signOut()}
+            className="px-4 py-2 rounded-lg text-sm bg-red-500 text-white font-medium hover:bg-red-600 transition"
+          >
+            Sign out
+          </button>
+        ) : (
+          <button
+            onClick={() => signIn("github")}
+            className="px-4 py-2 rounded-lg text-sm bg-purple-600 text-white font-medium hover:bg-purple-700 transition"
+          >
+            Sign in
+          </button>
+        )}
       </nav>
     </header>
   );

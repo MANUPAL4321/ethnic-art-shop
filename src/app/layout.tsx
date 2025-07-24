@@ -1,7 +1,8 @@
+// src/app/layout.tsx
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { CartProvider } from "@/context/CartContext"; // ✅ Import CartProvider
+import Providers from "./providers"; // ✅ Import the unified Providers wrapper
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,9 +29,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <CartProvider> {/* ✅ Wrap the whole app */}
+        <Providers> {/* ✅ Use unified provider */}
           {children}
-        </CartProvider>
+        </Providers>
       </body>
     </html>
   );
