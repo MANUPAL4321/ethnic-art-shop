@@ -5,18 +5,16 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="bg-white min-h-screen">
+    <div className="flex flex-col min-h-screen bg-white">
       <Header />
-      <Hero />
 
-      {/* Call to Action */}
-      <div className="text-center py-12">
-        <Link href="/products">
-          <button className="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-6 rounded shadow transition">
-            Shop Now
-          </button>
-        </Link>
-      </div>
+      <main className="flex-grow">
+        <Hero />
+
+        {/* Call to Action Buttons */}
+        <div className="text-center py-12 space-y-4">
+        </div>
+      </main>
 
       <Footer />
     </div>

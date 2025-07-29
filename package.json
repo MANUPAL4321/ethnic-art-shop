@@ -9,6 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@prisma/client": "^6.12.0",
+    "bcryptjs": "^3.0.2",
+    "mongoose": "^8.16.5",
     "next": "15.3.5",
     "next-auth": "^4.24.11",
     "react": "^19.0.0",
@@ -23,6 +26,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.3.5",
+    "prisma": "^6.12.0",
     "tailwindcss": "^4",
     "typescript": "^5"
   },
@@ -33,6 +37,8 @@
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-    "types": ["next-auth"]
+    "types": [
+      "next-auth"
+    ]
   }
 }

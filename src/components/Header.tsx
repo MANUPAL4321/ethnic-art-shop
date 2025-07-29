@@ -2,11 +2,9 @@
 
 import Link from "next/link";
 import { useCart } from "@/context/CartContext";
-import { signIn, signOut, useSession } from "next-auth/react";
 
 export default function Header() {
   const { cartItems } = useCart();
-  const { data: session } = useSession();
 
   return (
     <header className="bg-white shadow px-6 py-4 flex justify-between items-center">
@@ -30,12 +28,14 @@ export default function Header() {
         >
           Home
         </Link>
+
         <Link
           href="/products"
           className="px-4 py-2 rounded-lg text-sm text-gray-700 font-medium hover:bg-purple-100 hover:text-purple-700 shadow-sm transition"
         >
           Shop
         </Link>
+
         <Link
           href="/cart"
           className="relative px-4 py-2 rounded-lg text-sm text-gray-700 font-medium hover:bg-purple-100 hover:text-purple-700 shadow-sm transition"
@@ -48,22 +48,12 @@ export default function Header() {
           )}
         </Link>
 
-        {/* Authentication buttons */}
-        {session ? (
-          <button
-            onClick={() => signOut()}
-            className="px-4 py-2 rounded-lg text-sm bg-red-500 text-white font-medium hover:bg-red-600 transition"
-          >
-            Sign out
+        {/* Sign Up / Sign In Button */}
+        <Link href="/auth/signup">
+          <button className="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded shadow transition text-sm">
+            Sign Up / Sign In
           </button>
-        ) : (
-          <button
-            onClick={() => signIn("github")}
-            className="px-4 py-2 rounded-lg text-sm bg-purple-600 text-white font-medium hover:bg-purple-700 transition"
-          >
-            Sign in
-          </button>
-        )}
+        </Link>
       </nav>
     </header>
   );

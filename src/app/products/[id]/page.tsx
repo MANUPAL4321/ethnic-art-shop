@@ -1,7 +1,7 @@
 "use client";
 
 import { products } from "@/data/products";
-import { notFound, useRouter } from "next/navigation"; // ✅ useRouter added
+import { notFound, useRouter } from "next/navigation"; 
 import Image from "next/image";
 import { useCart } from "@/context/CartContext";
 
@@ -12,14 +12,13 @@ interface PageProps {
 export default function ProductDetail({ params }: PageProps) {
   const product = products.find((p) => p.id === params.id);
   const { addToCart } = useCart();
-  const router = useRouter(); // ✅ Initialize router
+  const router = useRouter(); 
 
   if (!product) return notFound();
 
-  // ✅ Handler to add and redirect to cart
   const handleAddAndGoToCart = () => {
     addToCart(product);
-    router.push("/cart"); // ✅ Redirect to cart page
+    router.push("/cart"); 
   };
 
   return (
@@ -40,7 +39,7 @@ export default function ProductDetail({ params }: PageProps) {
 
           <button
             className="mt-4 bg-purple-600 hover:bg-purple-700 text-white font-medium py-2 px-6 rounded shadow transition"
-            onClick={handleAddAndGoToCart} // ✅ Call handler
+            onClick={handleAddAndGoToCart} 
           >
             Add to Cart
           </button>
